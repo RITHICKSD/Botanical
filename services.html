@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Elysian Gardens Natural Preserve</title>
+    <meta name="description"
+        content="Discover our botanical services, from guided discovery tours and genomic research access to private events and wellness retreats.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+
+<body>
+
+    <header id="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-leaf"></i> <span>ELYSIAN GARDENS</span>
+            </a>
+
+            <nav class="nav-links">
+                <div class="nav-item">
+                    <a href="index.html" class="nav-link">Home <i class="fas fa-chevron-down"
+                            style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown">
+                        <a href="index.html" class="dropdown-item">Home 1</a>
+                        <a href="home2.html" class="dropdown-item">Home 2</a>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Dashboard <i class="fas fa-chevron-down"
+                            style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown">
+                        <a href="user-dashboard.html" class="dropdown-item">User Dashboard</a>
+                        <a href="admin-dashboard.html" class="dropdown-item">Admin Dashboard</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="header-utils">
+                <button class="util-btn" id="lang-toggle" title="Switch RTL/LTR">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <button class="util-btn" id="theme-toggle" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="login-btn desktop-only">Login</a>
+                <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-menu" id="mobile-menu">
+        <nav class="mobile-nav">
+            <div class="mobile-nav-group">
+                <button class="mobile-nav-link mobile-nav-toggle" data-target="mob-home">
+                    Home <i class="fas fa-chevron-down mobile-chevron"></i>
+                </button>
+                <div class="mobile-sub-menu" id="mob-home">
+                    <a href="index.html" class="mobile-nav-link mobile-sub-link">Home 1</a>
+                    <a href="home2.html" class="mobile-nav-link mobile-sub-link">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="services.html" class="mobile-nav-link">Services</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <div class="mobile-nav-group">
+                <button class="mobile-nav-link mobile-nav-toggle" data-target="mob-dash">
+                    Dashboard <i class="fas fa-chevron-down mobile-chevron"></i>
+                </button>
+                <div class="mobile-sub-menu" id="mob-dash">
+                    <a href="user-dashboard.html" class="mobile-nav-link mobile-sub-link">User Dashboard</a>
+                    <a href="admin-dashboard.html" class="mobile-nav-link mobile-sub-link">Admin Dashboard</a>
+                </div>
+            </div>
+            <a href="login.html" class="mobile-nav-link mobile-login-link">Login</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- 1. Services Hero -->
+        <section class="hero-about"
+            style="background: linear-gradient(rgba(107, 78, 113, 0.7), rgba(107, 78, 113, 0.7)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb773b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+            <div class="reveal">
+                <span class="edu-tag"
+                    style="color: white; border-bottom: 2px solid var(--accent-secondary); display: inline-block; padding-bottom: 5px;">Our
+                    Offerings</span>
+                <h1>Discover the Sanctuary</h1>
+            </div>
+        </section>
+
+        <!-- 2. The Service Compass (Categories) -->
+        <section style="padding: 120px 8%;">
+            <div class="container text-center">
+                <span class="section-tag">Explore</span>
+                <h2 class="section-title">Specialized Experiences</h2>
+                <div class="service-cat-grid">
+                    <div class="service-cat-card reveal">
+                        <i class="fas fa-shoe-prints"></i>
+                        <h4>Tours</h4>
+                        <p>Guided discovery through the canopy and labs.</p>
+                    </div>
+                    <div class="service-cat-card reveal">
+                        <i class="fas fa-flask"></i>
+                        <h4>Research</h4>
+                        <p>Genomic data access and lab consultations.</p>
+                    </div>
+                    <div class="service-cat-card reveal">
+                        <i class="fas fa-calendar-check"></i>
+                        <h4>Events</h4>
+                        <p>High-end hosting for weddings and retreats.</p>
+                    </div>
+                    <div class="service-cat-card reveal">
+                        <i class="fas fa-spa"></i>
+                        <h4>Wellness</h4>
+                        <p>Botanical therapy and forest meditation.</p>
+                    </div>
+                    <div class="service-cat-card reveal">
+                        <i class="fas fa-palette"></i>
+                        <h4>Workshops</h4>
+                        <p>Hands-on sessions for botanical crafts and care.</p>
+                    </div>
+                    <div class="service-cat-card reveal">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Consultation</h4>
+                        <p>Professional advice for ecological restoration.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Guided Discovery Tours -->
+        <section class="service-split reveal">
+            <div class="service-split-img">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                    alt="Canopy Tour">
+            </div>
+            <div class="service-split-content">
+                <span class="section-tag">Immersive Walks</span>
+                <h2 class="section-title">Canopy & Nocturnal Journeys</h2>
+                <p>Traverse our 40ft high virtual canopy walk or join our exclusive nocturnal tours to witness
+                    bioluminescent flora awakening under the moon. Our expert guides provide deep biological insights at
+                    every step.</p>
+                <a href="#" class="login-btn">Book a Tour</a>
+            </div>
+        </section>
+
+
+
+        <!-- 5. Educational Curriculum -->
+        <section class="reveal" style="padding: 120px 8%;">
+            <div class="container">
+                <span class="section-tag">Knowledge Hub</span>
+                <h2 class="section-title">Education & Internship</h2>
+                <div class="edu-grid">
+                    <div class="edu-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>School Programs</h4>
+                        <p>Interactive day-trips focusing on biodiversity and environmental stewardship for K-12.</p>
+                    </div>
+                    <div class="edu-card">
+                        <i class="fas fa-user-check"></i>
+                        <h4>Summer Internships</h4>
+                        <p>High-level clinical placements for botany and genetic engineering university students.</p>
+                    </div>
+                    <div class="edu-card">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h4>Public Workshops</h4>
+                        <p>Weekend sessions on rare plant care, sustainable gardening, and aromatherapy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Grand Event Hosting (Redesigned) -->
+        <section class="reveal" style="background: var(--accent-primary); color: white; overflow: hidden;">
+            <div class="service-split" style="gap: 0; padding: 0;">
+                <div class="service-split-img" style="border-radius: 0; flex: 1.2; height: 750px;">
+                    <img src="event-v2.png" alt="Event Dome">
+                </div>
+                <div class="service-split-content" style="flex: 0.8; padding: 8% 5%;">
+                    <h2 class="section-title" style="color: white; font-size: 3.5rem;">Celestial Glass-Wing Events</h2>
+                    <p style="opacity: 0.9;">Host your most significant moments under our 60ft high self-ventilating
+                        glass domes. From high-fashion galas to intimate botanical weddings, we provide an atmosphere
+                        unparalleled in luxury and nature.</p>
+                    <ul class="event-premium-list">
+                        <li><i class="fas fa-star"></i> 60ft High Self-Ventilating Domes</li>
+                        <li><i class="fas fa-star"></i> Integrated Multi-Sensory Audio Systems</li>
+                        <li><i class="fas fa-star"></i> Organic Farm-to-Table Catering</li>
+                        <li><i class="fas fa-star"></i> Exclusive Dawn & Dusk Garden Access</li>
+                    </ul>
+                    <a href="#" class="login-btn" style="background: white; color: var(--accent-primary);">Event
+                        Inquiry</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Wellness & Botanical Therapy -->
+        <section class="service-split reveal">
+            <div class="service-split-img">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                    alt="Wellness">
+            </div>
+            <div class="service-split-content">
+                <span class="section-tag">Mental Health</span>
+                <h2 class="section-title">Forest Bathing & Meditation</h2>
+                <p>Our designated "Silence Zones" offer guided forest bathing (Shinrin-yoku) and sensory meditation
+                    sessions specifically designed to reduce cortisol and foster deep cognitive restoration.</p>
+            </div>
+        </section>
+
+        <!-- 8. Patron Membership Tiers -->
+        <section style="background: var(--bg-secondary); padding: 120px 8%;">
+            <div class="container text-center">
+                <span class="section-tag">Join the Circle</span>
+                <h2 class="section-title">Patron Memberships</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card reveal">
+                        <h4>Seedling</h4>
+                        <div class="price">$150<span>/year</span></div>
+                        <ul class="pricing-features">
+                            <li>Unlimited Garden Entry</li>
+                            <li>10% Shop Discount</li>
+                            <li>Quarterly Newsletter</li>
+                        </ul>
+                        <a href="#" class="login-btn">Get Started</a>
+                    </div>
+                    <div class="pricing-card popular reveal">
+                        <div class="popular-tag">Most Chosen</div>
+                        <h4>Preserve Guardian</h4>
+                        <div class="price">$500<span>/year</span></div>
+                        <ul class="pricing-features">
+                            <li>All Seedling Benefits</li>
+                            <li>Priority Event Booking</li>
+                            <li>2 Guest VIP Passes</li>
+                            <li>1 Private Tour/Year</li>
+                        </ul>
+                        <a href="#" class="login-btn">Become a Guardian</a>
+                    </div>
+                    <div class="pricing-card reveal">
+                        <h4>Heritage Patron</h4>
+                        <div class="price">$2,500<span>/year</span></div>
+                        <ul class="pricing-features">
+                            <li>All Guardian Benefits</li>
+                            <li>Name on Legacy Wall</li>
+                            <li>Exclusive Lab Access</li>
+                            <li>Dinner with Curator</li>
+                        </ul>
+                        <a href="#" class="login-btn">Join as Patron</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Ecological Consulting (Redesigned) -->
+        <section class="reveal" style="padding: 120px 8%;">
+            <div class="container text-center">
+                <span class="section-tag">Global Impact</span>
+                <h2 class="section-title">Consulting for a Greener Future</h2>
+                <div class="consult-grid">
+                    <div class="consult-item">
+                        <i class="fas fa-city"></i>
+                        <h4>Urban Restoration</h4>
+                        <p>Providing high-fidelity ecological blueprints for zero-carbon city districts and public
+                            botanical hubs.</p>
+                    </div>
+                    <div class="consult-item">
+                        <i class="fas fa-building"></i>
+                        <h4>Corporate Reforestation</h4>
+                        <p>Designing science-backed reforestation strategies that provide measurable biodiversity impact
+                            and carbon credits.</p>
+                    </div>
+                    <div class="consult-item">
+                        <i class="fas fa-home-lg-alt"></i>
+                        <h4>Private Estate Curation</h4>
+                        <p>Transforming personal estates into biological sanctuaries with rare fauna and
+                            climate-resilient landscapes.</p>
+                    </div>
+                </div>
+                <a href="#" class="login-btn">Work with Us</a>
+            </div>
+        </section>
+
+        <!-- 10. The Gift Shop / Archive -->
+        <section class="reveal" style="padding: 100px 8%; background: var(--bg-secondary);">
+            <div class="container">
+                <div class="arch-split">
+                    <div class="arch-content">
+                        <span class="section-tag">Take Nature Home</span>
+                        <h2 class="section-title">The Archive Shop</h2>
+                        <p>Browse our curated collection of botanical prints, organic aromatherapy oils, and rare
+                            drought-resistant houseplant seeds. Every purchase directly funds our ongoing genomic
+                            research projects.</p>
+                    </div>
+                    <div class="service-split-img">
+                        <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                            alt="Shop">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. Volunteer & Fellowship Hub -->
+        <section class="reveal" style="padding: 120px 8%;">
+            <div class="container text-center">
+                <span class="section-tag">Get Involved</span>
+                <h2 class="section-title">Roots of the Community</h2>
+                <div class="service-cat-grid">
+                    <div class="service-cat-card reveal">
+                        <i class="fas fa-seedling"></i>
+                        <h4>Daily Volunteering</h4>
+                        <p>Help our groundskeeping team maintain the primary wings.</p>
+                    </div>
+                    <div class="service-cat-card reveal">
+                        <i class="fas fa-users-rectangle"></i>
+                        <h4>Docent Programs</h4>
+                        <p>Train to become a guide for our educational tours.</p>
+                    </div>
+                    <div class="service-cat-card reveal">
+                        <i class="fas fa-award"></i>
+                        <h4>Research Fellows</h4>
+                        <p>Join our lab team for 6-month intensive preservation stints.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. Inquiry & Booking Portal -->
+        <section class="reveal" style="padding: 150px 8%; text-align: center;">
+            <div
+                style="background: var(--bg-primary); border: 2px solid var(--accent-secondary); padding: 80px; border-radius: 50px;">
+                <h2 class="section-title">Ready to Experience Elysian?</h2>
+                <p style="margin: 2rem auto; max-width: 600px;">Contact our concierge to curate your visit, event, or
+                    research submission. We are here to ensure your journey through nature is unforgettable.</p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; margin-top: 3rem;">
+                    <a href="#" class="login-btn">Inquiry Form</a>
+                    <a href="#" class="login-btn"
+                        style="background: transparent; border: 1px solid var(--accent-primary); color: var(--accent-primary);">Call
+                        Concierge</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col reveal">
+                <a href="#" class="logo" style="margin-bottom: 1.5rem;">
+                    <i class="fas fa-leaf"></i> ELYSIAN GARDENS
+                </a>
+                <p>Elysian Gardens is a global leader in botanical research and ecological preservation, dedicated to
+                    the harmony of nature and humanity.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col reveal">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="services.html">Memberships</a></li>
+                    <li><a href="#lab">Botany Lab</a></li>
+                    <li><a href="#tour">Virtual Tour</a></li>
+                </ul>
+            </div>
+            <div class="footer-col reveal">
+                <h3>Visit Us</h3>
+                <ul>
+                    <li><a href="#">Directions</a></li>
+                    <li><a href="#">Opening Hours</a></li>
+                    <li><a href="#">Ticket Booking</a></li>
+                    <li><a href="#">Group Tours</a></li>
+                    <li><a href="#">Gift Shop</a></li>
+                </ul>
+            </div>
+            <div class="footer-col reveal">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Donate</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                    <li><a href="#">Conservation FAQ</a></li>
+                    <li><a href="#">Contact Support</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Elysian Gardens Natural Preserve. All rights reserved. | <a href="#"
+                    style="color: inherit; text-decoration: none;">Privacy Policy</a> | <a href="#"
+                    style="color: inherit; text-decoration: none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

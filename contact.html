@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Elysian Gardens Natural Preserve</title>
+    <meta name="description" content="Connect with the Elysian Gardens concierge for general inquiries, research partnerships, or private event hosting.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-leaf"></i> <span>ELYSIAN GARDENS</span>
+            </a>
+
+            <nav class="nav-links">
+                <div class="nav-item">
+                    <a href="index.html" class="nav-link">Home <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown">
+                        <a href="index.html" class="dropdown-item">Home 1</a>
+                        <a href="home2.html" class="dropdown-item">Home 2</a>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Dashboard <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown">
+                        <a href="user-dashboard.html" class="dropdown-item">User Dashboard</a>
+                        <a href="admin-dashboard.html" class="dropdown-item">Admin Dashboard</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="header-utils">
+                <button class="util-btn" id="lang-toggle" title="Switch RTL/LTR">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <button class="util-btn" id="theme-toggle" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="login-btn desktop-only">Login</a>
+                <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-menu" id="mobile-menu">
+        <nav class="mobile-nav">
+            <div class="mobile-nav-group">
+                <button class="mobile-nav-link mobile-nav-toggle" data-target="mob-home">
+                    Home <i class="fas fa-chevron-down mobile-chevron"></i>
+                </button>
+                <div class="mobile-sub-menu" id="mob-home">
+                    <a href="index.html" class="mobile-nav-link mobile-sub-link">Home 1</a>
+                    <a href="home2.html" class="mobile-nav-link mobile-sub-link">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="services.html" class="mobile-nav-link">Services</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <div class="mobile-nav-group">
+                <button class="mobile-nav-link mobile-nav-toggle" data-target="mob-dash">
+                    Dashboard <i class="fas fa-chevron-down mobile-chevron"></i>
+                </button>
+                <div class="mobile-sub-menu" id="mob-dash">
+                    <a href="user-dashboard.html" class="mobile-nav-link mobile-sub-link">User Dashboard</a>
+                    <a href="admin-dashboard.html" class="mobile-nav-link mobile-sub-link">Admin Dashboard</a>
+                </div>
+            </div>
+            <a href="login.html" class="mobile-nav-link mobile-login-link">Login</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- 1. Contact Hero -->
+        <section class="hero-about" style="background: linear-gradient(rgba(107, 78, 113, 0.75), rgba(107, 78, 113, 0.75)), url('https://images.unsplash.com/photo-1518173946687-a4c8a9833d8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+            <div class="reveal">
+                <span class="edu-tag" style="color: white; border-bottom: 2px solid var(--accent-secondary); display: inline-block; padding-bottom: 5px;">Get in Touch</span>
+                <h1>Connect with the Preserve</h1>
+            </div>
+        </section>
+
+        <!-- 2. The Inbound Compass (Pillars) -->
+        <section style="padding: 120px 8%;">
+            <div class="container text-center">
+                <span class="section-tag">Direct Access</span>
+                <h2 class="section-title">Specialized Channels</h2>
+                <div class="contact-pillar-grid">
+                    <div class="contact-pillar reveal">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <h4>General Inquiries</h4>
+                        <p>For visiting hours, ticket questions, or general feedback about your visit.</p>
+                        <a href="mailto:hello@elysiangardens.com" style="color: var(--accent-secondary); font-weight: 600;">hello@elysiangardens.com</a>
+                    </div>
+                    <div class="contact-pillar reveal">
+                        <i class="fas fa-flask-vial"></i>
+                        <h4>Research & Lab</h4>
+                        <p>Scientific partnership inquiries, database access, or genomic collaboration requests.</p>
+                        <a href="mailto:science@elysiangardens.com" style="color: var(--accent-secondary); font-weight: 600;">science@elysiangardens.com</a>
+                    </div>
+                    <div class="contact-pillar reveal">
+                        <i class="fas fa-award"></i>
+                        <h4>Patron Support</h4>
+                        <p>Direct concierge line for Heritage Patrons and institutional giving programs.</p>
+                        <a href="mailto:patrons@elysiangardens.com" style="color: var(--accent-secondary); font-weight: 600;">patrons@elysiangardens.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. The Concierge Desk (Form) -->
+        <section class="reveal" style="padding: 0 8% 120px 8%;">
+            <div class="contact-form-container">
+                <div class="text-center" style="margin-bottom: 4rem;">
+                    <span class="section-tag">Digital Entry</span>
+                    <h2 class="section-title">Formal Inquiry</h2>
+                    <p>Our concierge team typically responds within 4 working hours.</p>
+                </div>
+                <form class="form-grid">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="e.g. Julian Vance">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="julian@heritage.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Inquiry Type</label>
+                        <select>
+                            <option>General Visit</option>
+                            <option>Scientific Research</option>
+                            <option>Event Hosting</option>
+                            <option>Media/Press</option>
+                            <option>Career Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <select>
+                            <option>Standard</option>
+                            <option>Urgent (Within 12h)</option>
+                        </select>
+                    </div>
+                    <div class="form-group contact-full">
+                        <label>Message</label>
+                        <textarea rows="6" placeholder="How can our curators assist you today?"></textarea>
+                    </div>
+                    <div class="contact-full text-center">
+                        <button type="submit" class="login-btn" style="width: 100%; max-width: 400px; margin-top: 2rem;">Dispatch Inquiry</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- 4. Heritage Estate Access (Location) -->
+        <section class="service-split reveal">
+            <div class="service-split-img">
+                <img src="map-v2.png" alt="Estate Map">
+            </div>
+            <div class="service-split-content">
+                <span class="section-tag">Heritage Site</span>
+                <h2 class="section-title">The Central Preserve</h2>
+                <p>Located in the rolling hills of the northern estates, our central preserve is 500 acres of protected botanical heritage. We recommend arriving via our zero-emission shuttle from the central station.</p>
+                <div style="margin-top: 2rem;">
+                    <p><strong>Address:</strong> 100 Heritage Valley, Botanical District, EG 09232</p>
+                    <p><strong>Shuttle Service:</strong> Every 20 minutes from Central Hub.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Concierge Status & Metrics -->
+        <section class="reveal" style="padding: 100px 8%; background: var(--bg-secondary);">
+            <div class="container text-center">
+                <h3 style="color: var(--accent-primary); font-size: 1.1rem; letter-spacing: 2px;">REAL-TIME SUPPORT STATUS</h3>
+                <div class="status-bar">
+                    <div class="status-item">
+                        <span class="status-circle"></span> Concierge Online
+                    </div>
+                    <div class="status-item">
+                        <strong>AVG Response:</strong> 4.2 Hours
+                    </div>
+                    <div class="status-item">
+                        <strong>Current Volume:</strong> Moderate
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Press & Media Portal -->
+        <section class="reveal" style="padding: 120px 8%;">
+            <div class="container">
+                <div class="arch-split">
+                    <div class="arch-content">
+                        <span class="section-tag">For Creators</span>
+                        <h2 class="section-title">Press & Media Resources</h2>
+                        <p>Journalists and content creators can access our high-resolution archival image library, brand guidelines, and official press releases via our dedicated media portal.</p>
+                        <a href="#" class="login-btn">Access Media Kit</a>
+                    </div>
+                    <div class="service-split-img" style="height: 400px;">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Media Kit">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Institutional FAQ -->
+        <section style="background: var(--bg-secondary); padding: 120px 8%;">
+            <div class="container" style="max-width: 900px;">
+                <div class="text-center" style="margin-bottom: 4rem;">
+                    <span class="section-tag">Quick Answers</span>
+                    <h2 class="section-title">Institutional FAQ</h2>
+                </div>
+                <div class="faq-list">
+                    <div style="padding: 2rem; border-bottom: 1px solid var(--border-color);">
+                        <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">How do I request DNA specimens for university research?</h4>
+                        <p>All specimen requests must go through our Scientific Ethics Board. Please use the 'Research' category in the form above to start the process.</p>
+                    </div>
+                    <div style="padding: 2rem; border-bottom: 1px solid var(--border-color);">
+                        <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">Are private events available on short notice?</h4>
+                        <p>Due to our conservation protocols, most glass-wing events require at least 6 months lead time. Urgent inquiries for small retreats (under 10 guests) may be considered.</p>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">What is the zero-waste policy for visitors?</h4>
+                        <p>We are a zero-plastic facility. Visitors are provided with reusable glass containers for water upon entry, and all waste must be disposed of in our biological composting hubs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Visitor Protocol -->
+        <section class="reveal" style="padding: 120px 8%;">
+            <div class="container text-center">
+                <span class="section-tag">Security & Respect</span>
+                <h2 class="section-title">The Visiting Protocol</h2>
+                <div class="service-cat-grid">
+                    <div class="service-cat-card">
+                        <i class="fas fa-camera"></i>
+                        <h4>Photography</h4>
+                        <p>Personal photography is encouraged. Professional equipment requires a permit.</p>
+                    </div>
+                    <div class="service-cat-card">
+                        <i class="fas fa-tshirt"></i>
+                        <h4>Attire</h4>
+                        <p>Sensible trail footwear and climate-appropriate attire recommended.</p>
+                    </div>
+                    <div class="service-cat-card">
+                        <i class="fas fa-wheelchair"></i>
+                        <h4>Accessibility</h4>
+                        <p>95% of our primary canopy trails are fully ADA-compliant.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Careers & Fellowship Inquiry -->
+        <section class="reveal" style="padding: 100px 0; background: var(--accent-primary); color: white; text-align: center;">
+            <div class="container">
+                <h2 class="section-title" style="color: white; text-align: center;">Join the Legacy</h2>
+                <p style="max-width: 800px; margin: 2rem auto; font-size: 1.1rem; opacity: 0.9; text-align: center;">Elysian Gardens is always looking for world-class botanists, data scientists, and administrative curators. If you have a passion for high-altitute preservation, we'd like to hear from you.</p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; margin-top: 3rem;">
+                    <a href="#" class="login-btn" style="background: white; color: var(--accent-primary);">View Openings</a>
+                    <a href="#" class="login-btn" style="background: transparent; border: 1px solid white; color: white;">Submit CV</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Legacy Connection CTA -->
+        <section class="reveal" style="padding: 150px 8%; text-align: center;">
+            <div style="max-width: 800px; margin: 0 auto; border-top: 1px solid var(--border-color); padding-top: 80px;">
+                <h2 class="section-title">A Living Dialogue</h2>
+                <p style="margin: 2rem auto;">We view every inquiry as the beginning of a conversation about the future of our planet. Thank you for your interest in the Elysian heritage.</p>
+                <div class="social-links" style="justify-content: center; margin-top: 3rem;">
+                    <a href="#" style="font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="font-size: 1.5rem;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="font-size: 1.5rem;"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col reveal">
+                <a href="#" class="logo" style="margin-bottom: 1.5rem;">
+                    <i class="fas fa-leaf"></i> ELYSIAN GARDENS
+                </a>
+                <p>Elysian Gardens is a global leader in botanical research and ecological preservation, dedicated to the harmony of nature and humanity.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col reveal">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="services.html">Memberships</a></li>
+                    <li><a href="#lab">Botany Lab</a></li>
+                    <li><a href="#tour">Virtual Tour</a></li>
+                </ul>
+            </div>
+            <div class="footer-col reveal">
+                <h3>Visit Us</h3>
+                <ul>
+                    <li><a href="#">Directions</a></li>
+                    <li><a href="#">Opening Hours</a></li>
+                    <li><a href="#">Ticket Booking</a></li>
+                    <li><a href="#">Group Tours</a></li>
+                    <li><a href="#">Gift Shop</a></li>
+                </ul>
+            </div>
+            <div class="footer-col reveal">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Donate</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                    <li><a href="#">Conservation FAQ</a></li>
+                    <li><a href="#">Contact Support</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Elysian Gardens Natural Preserve. All rights reserved. | <a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: inherit; text-decoration: none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

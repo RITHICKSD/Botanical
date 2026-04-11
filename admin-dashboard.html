@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr"> <!-- Default to dark for Admin -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Elysian Gardens</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* ===== DESIGN TOKENS (Shared with User Dash) ===== */
+        :root {
+            --accent-primary: #6b4e71;
+            --accent-secondary: #d4a5a5;
+            --bg-primary: #fdfdfb;
+            --bg-secondary: #f5f0f6;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #888;
+            --border: rgba(107, 78, 113, 0.15);
+            --shadow: rgba(107, 78, 113, 0.12);
+            --sidebar-w: 260px;
+            --font-body: 'Montserrat', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1a161d;
+            --bg-secondary: #231e27;
+            --bg-card: #2a2430;
+            --text-primary: #f0e8f0;
+            --text-secondary: #a090a8;
+            --border: rgba(212, 165, 165, 0.12);
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            height: 100%;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* ===== LAYOUT ===== */
+        .dash-layout { display: flex; min-height: 100vh; }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            width: var(--sidebar-w);
+            height: 100vh;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+            box-shadow: 4px 0 20px var(--shadow);
+        }
+
+        .sidebar-logo {
+            padding: 2rem 1.5rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .sidebar-logo i { font-size: 1.4rem; color: var(--accent-primary); }
+        .sidebar-logo-text { font-family: var(--font-heading); font-size: 1rem; font-weight: 800; color: var(--accent-primary); letter-spacing: 0.5px; line-height: 1.1; }
+
+        .sidebar-nav { flex: 1; padding: 1.2rem 0.8rem; display: flex; flex-direction: column; gap: 0.3rem; overflow-y: auto; }
+        .nav-section-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-secondary); padding: 0.8rem 0.8rem 0.4rem; font-weight: 600; }
+
+        .sidebar-link {
+            display: flex; align-items: center; gap: 0.9rem; padding: 0.8rem 1rem; border-radius: 12px;
+            text-decoration: none; color: var(--text-secondary); font-size: 0.88rem; font-weight: 600;
+            transition: var(--transition); cursor: pointer; border: none; background: none; width: 100%; text-align: left;
+        }
+
+        .sidebar-link i { width: 18px; text-align: center; font-size: 0.95rem; }
+        .sidebar-link:hover { background: var(--bg-secondary); color: var(--accent-primary); }
+        .sidebar-link.active { background: rgba(107, 78, 113, 0.12); color: var(--accent-primary); font-weight: 700; }
+        .nav-badge { margin-left: auto; background: var(--accent-secondary); color: white; font-size: 0.65rem; font-weight: 700; padding: 2px 7px; border-radius: 20px; }
+
+        .sidebar-link.logout-link { margin-top: auto; color: #e57373; }
+        .sidebar-link.logout-link:hover { background: rgba(229, 115, 115, 0.1); color: #ef5350; }
+
+        .sidebar-bottom { padding: 1.2rem 0.8rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+        .sidebar-bottom-left { display: flex; align-items: center; gap: 0.5rem; }
+        .icon-btn { width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-secondary); font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+        .icon-btn:hover { background: var(--accent-primary); color: white; border-color: var(--accent-primary); }
+
+        /* ===== MAIN CONTENT ===== */
+        .dash-main { margin-left: var(--sidebar-w); flex: 1; min-height: 100vh; padding: 2.5rem; background: var(--bg-primary); transition: margin-left 0.35s cubic-bezier(0.4,0,0.2,1); }
+
+        .dash-topbar { padding: 1rem 1.5rem; background: var(--bg-card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 900; margin: -2.5rem -2.5rem 2rem; display: none; }
+
+        .sidebar-toggle { width: 42px; height: 42px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-secondary); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; position: relative; z-index: 1001; }
+        .sidebar-toggle span { display: block; width: 20px; height: 2px; background: var(--accent-primary); border-radius: 2px; transition: 0.3s; }
+        .sidebar-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        .sidebar-toggle.active span:nth-child(2) { opacity: 0; }
+        .sidebar-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+        .dash-section { display: none; }
+        .dash-section.active { display: block; }
+        .page-header { margin-bottom: 2rem; }
+        .page-header h1 { font-family: var(--font-heading); font-size: 2.2rem; color: var(--text-primary); }
+        .page-header p { color: var(--text-secondary); margin-top: 0.4rem; }
+
+        .stat-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
+        .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; transition: var(--transition); }
+        .stat-card-icon { width: 42px; height: 42px; border-radius: 12px; background: rgba(107, 78, 113, 0.1); color: var(--accent-primary); display: flex; align-items: center; justify-content: center; }
+        .stat-card-value { font-size: 1.8rem; font-weight: 800; color: var(--text-primary); }
+        .stat-card-label { font-size: 0.72rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+
+        .charts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .chart-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 1.5rem; }
+        .chart-card.wide { grid-column: span 2; }
+        .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; }
+        .chart-title { font-size: 0.9rem; font-weight: 700; }
+        .chart-wrap { position: relative; height: 220px; }
+
+        /* Sidebar Overlay */
+        .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; }
+        .sidebar-overlay.active { display: block; }
+
+        @media (max-width: 992px) {
+            .sidebar { transform: translateX(-100%); padding-top: 2rem; }
+            .sidebar.open { transform: translateX(0); }
+            .sidebar-logo { padding: 5.5rem 1.0rem 1.5rem !important; }
+            .dash-main { margin-left: 0; padding: 0; }
+            .dash-topbar { display: flex; margin: 0; width: 100vw; position: sticky; top: 0; z-index: 1000; justify-content: space-between; align-items: center; }
+            .dash-body { padding: 1.5rem; }
+        }
+
+        @media (max-width: 1200px) { .charts-grid { grid-template-columns: repeat(2, 1fr); } .stat-cards { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { 
+            .dash-main { padding: 0; overflow-x: hidden; }
+            .dash-body { padding: 1rem; width: 100%; box-sizing: border-box; }
+            .charts-grid { grid-template-columns: 1fr !important; gap: 0.8rem; width: 100%; } 
+            .chart-card.wide { grid-column: span 1 !important; } 
+            .stat-cards { grid-template-columns: 1fr !important; gap: 0.8rem; width: 100%; }
+            .stat-card { padding: 1rem; border-radius: 12px; }
+            .chart-card { padding: 1rem; border-radius: 12px; }
+            .chart-wrap { height: 180px; }
+            .stat-card-value { font-size: 1.5rem; }
+            .page-header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="dash-layout">
+        <aside class="sidebar" id="sidebar">
+            <a href="index.html" class="sidebar-logo">
+                <i class="fas fa-leaf"></i>
+                <div class="sidebar-logo-text">ELYSIAN GARDENS</div>
+            </a>
+            <nav class="sidebar-nav">
+                <span class="nav-section-label">Administration</span>
+                <button class="sidebar-link active" data-section="overview"><i class="fas fa-tachometer-alt"></i> Overview</button>
+                <button class="sidebar-link" data-section="gardens"><i class="fas fa-seedling"></i> Garden Management</button>
+                <button class="sidebar-link" data-section="users"><i class="fas fa-users"></i> Member Database</button>
+                
+                <span class="nav-section-label">Operations</span>
+                <button class="sidebar-link" data-section="events"><i class="fas fa-calendar-alt"></i> Event Control <span class="nav-badge">12</span></button>
+                <button class="sidebar-link" data-section="staff"><i class="fas fa-user-shield"></i> Staff & Security</button>
+                <button class="sidebar-link" data-section="reports"><i class="fas fa-file-invoice-dollar"></i> Finance & Reports</button>
+                <button class="sidebar-link" data-section="settings"><i class="fas fa-cogs"></i> System Settings</button>
+                
+                <a href="index.html" class="sidebar-link logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <div class="sidebar-bottom-left">
+                    <button class="icon-btn" id="dash-lang-toggle"><i class="fas fa-globe"></i></button>
+                    <button class="icon-btn" id="dash-theme-toggle"><i class="fas fa-moon"></i></button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="dash-main">
+            <div class="dash-topbar">
+                <div></div>
+                <button class="sidebar-toggle" id="sidebar-toggle"><span></span><span></span><span></span></button>
+            </div>
+
+            <div class="dash-body">
+                <!-- OVERVIEW -->
+                <div class="dash-section active" id="section-overview">
+                    <div class="page-header">
+                        <h1>Admin Overview</h1>
+                        <p>Elysian Natural Preserve — System Status & Vital Metrics</p>
+                    </div>
+                    <div class="stat-cards">
+                        <div class="stat-card">
+                            <div class="stat-card-icon"><i class="fas fa-users"></i></div>
+                            <div class="stat-card-value">12,482</div>
+                            <div class="stat-card-label">Total Members</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-icon"><i class="fas fa-ticket-alt"></i></div>
+                            <div class="stat-card-value">430</div>
+                            <div class="stat-card-label">Visits Today</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-icon"><i class="fas fa-dollar-sign"></i></div>
+                            <div class="stat-card-value">$84.2k</div>
+                            <div class="stat-card-label">Monthly Revenue</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            <div class="stat-card-value">2</div>
+                            <div class="stat-card-label">Active Alerts</div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-card wide">
+                            <div class="chart-header"><div class="chart-title">Revenue vs Traffic</div></div>
+                            <div class="chart-wrap"><canvas id="adminLineChart"></canvas></div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-header"><div class="chart-title">Member Distribution</div></div>
+                            <div class="chart-wrap"><canvas id="adminPieChart"></canvas></div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-header"><div class="chart-title">Garden Wing Status</div></div>
+                            <div class="chart-wrap"><canvas id="adminBarChart"></canvas></div>
+                        </div>
+                        <div class="chart-card wide">
+                            <div class="chart-header"><div class="chart-title">Staff Activity Logs</div></div>
+                            <div class="chart-wrap"><canvas id="adminAreaChart"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder Sections -->
+                <div class="dash-section" id="section-gardens"><div class="page-header"><h1>Garden Management</h1><p>Control climate and growth parameters for all wings.</p></div></div>
+                <div class="dash-section" id="section-users"><div class="page-header"><h1>Member Database</h1><p>Manage memberships, roles, and access permissions.</p></div></div>
+                <div class="dash-section" id="section-events"><div class="page-header"><h1>Event Control</h1><p>Manage tour schedules and private bookings.</p></div></div>
+                <div class="dash-section" id="section-staff"><div class="page-header"><h1>Staff & Security</h1><p>Monitor security feeds and staff shifts.</p></div></div>
+                <div class="dash-section" id="section-reports"><div class="page-header"><h1>Finance & Reports</h1><p>Generate analytical and fiscal reports.</p></div></div>
+                <div class="dash-section" id="section-settings"><div class="page-header"><h1>System Settings</h1><p>Configure Elysian digital platform parameters.</p></div></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const html = document.documentElement;
+        document.getElementById('dash-theme-toggle').addEventListener('click', () => {
+            const t = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', t);
+            updateCharts();
+        });
+
+        const sidebar = document.getElementById('sidebar');
+        const toggle = document.getElementById('sidebar-toggle');
+        const overlay = document.getElementById('sidebar-overlay');
+
+        toggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            toggle.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            toggle.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        document.querySelectorAll('.sidebar-link[data-section]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.sidebar-link').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.dash-section').forEach(s => s.classList.remove('active'));
+                document.getElementById('section-' + btn.getAttribute('data-section')).classList.add('active');
+                sidebar.classList.remove('open'); toggle.classList.remove('active'); overlay.classList.remove('active');
+            });
+        });
+
+        const purple = '#6b4e71'; const rose = '#d4a5a5';
+        Chart.defaults.font.family = "'Montserrat', sans-serif";
+        Chart.defaults.color = '#888';
+
+        function getTC() { return html.getAttribute('data-theme') === 'dark' ? '#a090a8' : '#888'; }
+        function getGC() { return html.getAttribute('data-theme') === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)'; }
+
+        const instances = {};
+        instances.line = new Chart(document.getElementById('adminLineChart'), {
+            type: 'line',
+            data: { labels: ['M','T','W','T','F','S','S'], datasets: [{ label: 'Revenue', data:[65,59,80,81,96,120,110], borderColor: purple, tension:0.4 }] },
+            options: { responsive:true, maintainAspectRatio:false, scales: { x:{grid:{color:getGC()},ticks:{color:getTC()}}, y:{grid:{color:getGC()},ticks:{color:getTC()}} } }
+        });
+        instances.pie = new Chart(document.getElementById('adminPieChart'), {
+            type: 'pie',
+            data: { labels:['Patron','Standard','Botanist'], datasets:[{ data:[30,50,20], backgroundColor:[purple,rose,'#8b6b91'] }] },
+            options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{color:getTC()}}} }
+        });
+        instances.bar = new Chart(document.getElementById('adminBarChart'), {
+            type: 'bar',
+            data: { labels:['Tropical','Alpine','Orchid','Fern'], datasets:[{ label:'Health Score', data:[95,88,92,85], backgroundColor:purple }] },
+            options: { responsive:true, maintainAspectRatio:false, scales:{ x:{ticks:{color:getTC()}}, y:{ticks:{color:getTC()}} } }
+        });
+        instances.area = new Chart(document.getElementById('adminAreaChart'), {
+            type: 'line',
+            data: { labels:['8am','10am','12pm','2pm','4pm','6pm','8pm'], datasets:[{ label:'Staff Presence', fill:true, data:[12,25,30,28,40,35,15], backgroundColor:'rgba(107,78,113,0.1)', borderColor:purple }] },
+            options: { responsive:true, maintainAspectRatio:false, scales:{ x:{ticks:{color:getTC()}}, y:{ticks:{color:getTC()}} } }
+        });
+
+        function updateCharts() {
+            Object.values(instances).forEach(c => {
+                if(c.options.scales?.x) { c.options.scales.x.grid.color = getGC(); c.options.scales.x.ticks.color = getTC(); }
+                if(c.options.scales?.y) { c.options.scales.y.grid.color = getGC(); c.options.scales.y.ticks.color = getTC(); }
+                if(c.options.plugins?.legend) c.options.plugins.legend.labels.color = getTC();
+                c.update();
+            });
+        }
+    </script>
+</body>
+</html>

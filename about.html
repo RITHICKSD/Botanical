@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Elysian Gardens Natural Preserve</title>
+    <meta name="description" content="Learn about our century-long heritage, our mission of botanical conservation, and the scientific curators behind Elysian Gardens.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-leaf"></i> <span>ELYSIAN GARDENS</span>
+            </a>
+
+            <nav class="nav-links">
+                <div class="nav-item">
+                    <a href="index.html" class="nav-link">Home <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown">
+                        <a href="index.html" class="dropdown-item">Home 1</a>
+                        <a href="home2.html" class="dropdown-item">Home 2</a>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Dashboard <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown">
+                        <a href="user-dashboard.html" class="dropdown-item">User Dashboard</a>
+                        <a href="admin-dashboard.html" class="dropdown-item">Admin Dashboard</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="header-utils">
+                <button class="util-btn" id="lang-toggle" title="Switch RTL/LTR">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <button class="util-btn" id="theme-toggle" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="login-btn desktop-only">Login</a>
+                <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-menu" id="mobile-menu">
+        <nav class="mobile-nav">
+            <div class="mobile-nav-group">
+                <button class="mobile-nav-link mobile-nav-toggle" data-target="mob-home">
+                    Home <i class="fas fa-chevron-down mobile-chevron"></i>
+                </button>
+                <div class="mobile-sub-menu" id="mob-home">
+                    <a href="index.html" class="mobile-nav-link mobile-sub-link">Home 1</a>
+                    <a href="home2.html" class="mobile-nav-link mobile-sub-link">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="services.html" class="mobile-nav-link">Services</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <div class="mobile-nav-group">
+                <button class="mobile-nav-link mobile-nav-toggle" data-target="mob-dash">
+                    Dashboard <i class="fas fa-chevron-down mobile-chevron"></i>
+                </button>
+                <div class="mobile-sub-menu" id="mob-dash">
+                    <a href="user-dashboard.html" class="mobile-nav-link mobile-sub-link">User Dashboard</a>
+                    <a href="admin-dashboard.html" class="mobile-nav-link mobile-sub-link">Admin Dashboard</a>
+                </div>
+            </div>
+            <a href="login.html" class="mobile-nav-link mobile-login-link">Login</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- 1. Origin Hero -->
+        <section class="hero-about">
+            <div class="reveal">
+                <span class="edu-tag" style="color: white; border-bottom: 2px solid var(--accent-secondary); display: inline-block; padding-bottom: 5px;">Our Heritage</span>
+                <h1>Crafting a Green Legacy</h1>
+            </div>
+        </section>
+
+        <!-- 2. Our Mission (Bold) -->
+        <section style="background: var(--bg-secondary); text-align: center; padding: 120px 8%;">
+            <div class="container reveal">
+                <span class="section-tag">Purpose</span>
+                <h2 class="section-title" style="max-width: 900px; margin-inline: auto;">To preserve the biological soul of our planet through scientific innovation and community immersion.</h2>
+                <p style="max-width: 700px; margin-inline: auto; font-size: 1.1rem; color: var(--text-secondary);">Elysian Gardens is more than a botanical sanctuary; it is a global beacon for environmental restoration and the deep study of flora's role in human wellness.</p>
+            </div>
+        </section>
+
+        <!-- 3. Heritage Timeline -->
+        <section class="reveal">
+            <div class="container">
+                <span class="section-tag text-center">Chronicles</span>
+                <h2 class="section-title text-center">A Century of Growth</h2>
+                <div class="timeline-about">
+                    <div class="timeline-year">
+                        <div class="year-box">
+                            <span class="year-num">1924</span>
+                            <h4>The Vision Begins</h4>
+                            <p>Elias Vance converts his Highland estate into a private herbarium, collecting over 2,000 rare fern variations.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-year">
+                        <div class="year-box">
+                            <span class="year-num">1968</span>
+                            <h4>Public Sanctuary</h4>
+                            <p>The gates are opened to the public for the first time, establishing the "Oriental Wing" and its famous orchid collection.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-year">
+                        <div class="year-box">
+                            <span class="year-num">2010</span>
+                            <h4>Scientific Transformation</h4>
+                            <p>Launch of the high-security genomic lab, pivoting the preserve from display to active biological preservation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Ethical Pillars (Grid) -->
+        <section style="background: var(--bg-secondary);">
+            <div class="container">
+                <span class="section-tag">Our Foundations</span>
+                <h2 class="section-title">The Four Pillars</h2>
+                <div class="edu-grid">
+                    <div class="edu-card">
+                        <i class="fas fa-leaf"></i>
+                        <h4>Sustainability</h4>
+                        <p>We operate as a zero-waste facility, utilizing advanced vertical rainwater harvesting across our 500-acre estate.</p>
+                    </div>
+                    <div class="edu-card">
+                        <i class="fas fa-user-graduate"></i>
+                        <h4>Education</h4>
+                        <p>Our youth and university programs reach over 300,000 students annually, fostering the next tier of botanists.</p>
+                    </div>
+                    <div class="edu-card">
+                        <i class="fas fa-microscope"></i>
+                        <h4>Active Research</h4>
+                        <p>We maintain one of the only live DNA archives for flora found in high-altitude Amazonian regions.</p>
+                    </div>
+                    <div class="edu-card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h4>Community</h4>
+                        <p>Elysian Gardens provides mental wellness retreats and local employment to over 1,200 conservationists.</p>
+                    </div>
+                    <div class="edu-card">
+                        <i class="fas fa-gavel"></i>
+                        <h4>Conservation Law</h4>
+                        <p>Our legal team works with international bodies to establish protected status for the world's most vulnerable botanical habitats.</p>
+                    </div>
+                    <div class="edu-card">
+                        <i class="fas fa-globe-americas"></i>
+                        <h4>Global Outreach</h4>
+                        <p>We partner with 24 global affiliates to restore native forests and soil health in over 15 developing nations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Meet the Curators -->
+        <section class="reveal">
+            <div class="container">
+                <span class="section-tag">Leadership</span>
+                <h2 class="section-title">The Minds Behind the Bloom</h2>
+                <div class="curator-grid">
+                    <div class="curator-card">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Dr Julian" class="curator-img">
+                        <div class="curator-info">
+                            <h4>Dr. Julian Vance</h4>
+                            <p>Chief Curator & Geneticist</p>
+                        </div>
+                    </div>
+                    <div class="curator-card">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Elena" class="curator-img">
+                        <div class="curator-info">
+                            <h4>Elena Rostova</h4>
+                            <p>Head of Amazonian Research</p>
+                        </div>
+                    </div>
+                    <div class="curator-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Marcus" class="curator-img">
+                        <div class="curator-info">
+                            <h4>Marcus Thorn</h4>
+                            <p>Director of Architecture</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Architectural Philosophy -->
+        <section style="background: var(--bg-secondary);">
+            <div class="container reveal arch-split">
+                <div class="arch-img-frame">
+                    <img src="arch-v2.png" alt="Main Arch" class="arch-img-main">
+                    <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sub Arch" class="arch-img-sub">
+                </div>
+                <div class="arch-content">
+                    <span class="section-tag">Biophilic Design</span>
+                    <h2 class="section-title">Harmonious Structures</h2>
+                    <p>Designed by Marcus Thorn, our wings are built to mimic the cellular structure of leaves. This self-ventilating glass architecture provides the exact atmospheric pressure needed for our high-altitude specimens while maintaining a zero-carbon footprint.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Global Impact (Stats) -->
+        <section class="stats" style="background: var(--accent-secondary); margin: 100px 0; border-radius: 50px;">
+            <div class="stats-container reveal">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="15">0</span>
+                    <span class="stat-label">Global Affiliates</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="1200000">0</span>
+                    <span class="stat-label">Seeds Archived</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="45">0</span>
+                    <span class="stat-label">Research Patents</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Founders' Vision (Redesigned) -->
+        <section class="reveal vision-letter">
+            <div class="vision-image">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="The Vance Estate">
+            </div>
+            <div class="letter-box">
+                <span class="section-tag" style="margin-bottom: 2rem;">A Personal Note</span>
+                <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--accent-secondary); margin-bottom: 2rem; display: block;"></i>
+                <h2 class="letter-quote">"Nature doesn't just need our protection; it needs our understanding. We are here to bridge that gap."</h2>
+                <p style="color: var(--text-secondary); line-height: 1.8;">Our journey began nearly a century ago, not with a blueprint for a museum, but with a deep respect for the intelligence of the earth. Today, we continue that mission by merging the wonders of the natural world with the precision of modern science.</p>
+                <span class="letter-signature">- The Vance Family Heritage</span>
+            </div>
+        </section>
+
+        <!-- 9. Press Recognitions (Redesigned) -->
+        <section style="background: var(--bg-secondary);">
+            <div class="container text-center reveal">
+                <span class="section-tag text-center" style="margin-inline: auto;">In the News</span>
+                <h2 class="section-title">Global Recognition</h2>
+                <div class="press-grid">
+                    <div class="press-card">
+                        <i class="fas fa-newspaper press-icon"></i>
+                        <span class="press-name">The Times</span>
+                        <p class="press-quote">"A masterpiece of biological design and conservation architecture."</p>
+                    </div>
+                    <div class="press-card">
+                        <i class="fas fa-globe press-icon"></i>
+                        <span class="press-name">National Geo</span>
+                        <p class="press-quote">"The gold standard for modern botanical curation in the 21st century."</p>
+                    </div>
+                    <div class="press-card">
+                        <i class="fas fa-book-open press-icon"></i>
+                        <span class="press-name">Botanical Digest</span>
+                        <p class="press-quote">"Securing the genetic legacy of our planet with unparalleled precision."</p>
+                    </div>
+                    <div class="press-card">
+                        <i class="fas fa-landmark press-icon"></i>
+                        <span class="press-name">Green Architecture</span>
+                        <p class="press-quote">"Elysian Gardens is the future of sustainable glass-wing structure."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Join the Legacy (CTA) -->
+        <section class="reveal" style="padding: 100px 8%; text-align: center;">
+            <div class="about-cta-box" style="background: var(--accent-primary); color: white; padding: 100px; border-radius: 50px;">
+                <h1>Ready to Join Our Story?</h1>
+                <p style="margin: 2rem auto; max-width: 600px;">Become a part of the century-long preservation effort. Your support fuels our research and keeps the gardens blooming for generations to come.</p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; margin-top: 3rem;">
+                    <a href="register.html" class="login-btn" style="background: white; color: var(--accent-primary);">Join as Patron</a>
+                    <a href="register.html" class="login-btn" style="background: transparent; border: 1px solid white;">Volunteer Now</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col reveal">
+                <a href="#" class="logo" style="margin-bottom: 1.5rem;">
+                    <i class="fas fa-leaf"></i> ELYSIAN GARDENS
+                </a>
+                <p>Elysian Gardens is a global leader in botanical research and ecological preservation, dedicated to the harmony of nature and humanity.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col reveal">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="#services">Memberships</a></li>
+                    <li><a href="#lab">Botany Lab</a></li>
+                    <li><a href="#tour">Virtual Tour</a></li>
+                </ul>
+            </div>
+            <div class="footer-col reveal">
+                <h3>Visit Us</h3>
+                <ul>
+                    <li><a href="#">Directions</a></li>
+                    <li><a href="#">Opening Hours</a></li>
+                    <li><a href="#">Ticket Booking</a></li>
+                    <li><a href="#">Group Tours</a></li>
+                    <li><a href="#">Gift Shop</a></li>
+                </ul>
+            </div>
+            <div class="footer-col reveal">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Donate</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                    <li><a href="#">Conservation FAQ</a></li>
+                    <li><a href="#">Contact Support</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Elysian Gardens Natural Preserve. All rights reserved. | <a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: inherit; text-decoration: none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
