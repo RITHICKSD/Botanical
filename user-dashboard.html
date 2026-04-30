@@ -105,6 +105,12 @@
             line-height: 1.1;
         }
 
+        [data-theme="dark"] .sidebar-logo i,
+        [data-theme="dark"] .sidebar-logo-text {
+            color: #f3e8f3 !important;
+            text-shadow: 0 0 10px rgba(243, 232, 243, 0.1);
+        }
+
         .sidebar-logo-text small {
             display: none;
         }
@@ -1107,10 +1113,19 @@
         // ===== THEME & LANG TOGGLES =====
         const html = document.documentElement;
 
+        // Initialize theme from local storage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+            const icon = document.getElementById('dash-theme-toggle').querySelector('i');
+            icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
         document.getElementById('dash-theme-toggle').addEventListener('click', function () {
             const t = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
             html.setAttribute('data-theme', t);
             this.querySelector('i').className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('theme', t);
             updateChartTheme();
         });
 

@@ -107,6 +107,47 @@ document.addEventListener('DOMContentLoaded', () => {
         window.requestAnimationFrame(step);
     }
 
+    // --- Dynamic Navigation Highlighting ---
+    function highlightNav() {
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        
+        // Desktop Nav
+        document.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPath) {
+                link.classList.add('active');
+                
+                // If it's a dropdown item, also highlight the parent nav-link
+                const parentNavContainer = link.closest('.nav-item');
+                if (parentNavContainer) {
+                    const parentLink = parentNavContainer.querySelector('.nav-link');
+                    if (parentLink) parentLink.classList.add('active');
+                }
+            }
+        });
+
+        // Mobile Nav
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPath) {
+                link.classList.add('active');
+                
+                // If it's a sub-link, open the parent sub-menu
+                if (link.classList.contains('mobile-sub-link')) {
+                    const subMenu = link.closest('.mobile-sub-menu');
+                    const toggle = document.querySelector(`[data-target="${subMenu.id}"]`);
+                    if (toggle && subMenu) {
+                        toggle.classList.add('open');
+                        subMenu.classList.add('open');
+                        toggle.classList.add('active');
+                    }
+                }
+            }
+        });
+    }
+
+    highlightNav();
+
     // Initialize theme from local storage if available
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
