@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggle.addEventListener('click', () => {
         const currentTheme = htmlElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
+
         htmlElement.setAttribute('data-theme', newTheme);
         themeIcon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-        
+
         // Save preference
         localStorage.setItem('theme', newTheme);
     });
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                
+
                 // If it's a number, trigger the counter
                 const numberEl = entry.target.querySelector('.stat-number');
                 if (numberEl) {
@@ -110,13 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Dynamic Navigation Highlighting ---
     function highlightNav() {
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        
+
         // Desktop Nav
         document.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
             const href = link.getAttribute('href');
             if (href === currentPath) {
                 link.classList.add('active');
-                
+
                 // If it's a dropdown item, also highlight the parent nav-link
                 const parentNavContainer = link.closest('.nav-item');
                 if (parentNavContainer) {
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const href = link.getAttribute('href');
             if (href === currentPath) {
                 link.classList.add('active');
-                
+
                 // If it's a sub-link, open the parent sub-menu
                 if (link.classList.contains('mobile-sub-link')) {
                     const subMenu = link.closest('.mobile-sub-menu');
