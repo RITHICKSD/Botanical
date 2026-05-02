@@ -1,28 +1,68 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Theme Toggle ---
-    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggles = [document.getElementById('theme-toggle'), document.getElementById('dash-theme-toggle')].filter(Boolean);
     const htmlElement = document.documentElement;
-    const themeIcon = themeToggle.querySelector('i');
 
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    function updateThemeUI(theme) {
+        htmlElement.setAttribute('data-theme', theme);
+        themeToggles.forEach(btn => {
+            const icon = btn.querySelector('i');
+            if (icon) icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        });
+        localStorage.setItem('theme', theme);
+        if (typeof updateChartTheme === 'function') {
+            updateChartTheme();
+        }
+        if (typeof updateCharts === 'function') {
+            updateCharts();
+        }
+    }
 
-        htmlElement.setAttribute('data-theme', newTheme);
-        themeIcon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
 
-        // Save preference
-        localStorage.setItem('theme', newTheme);
+
+    themeToggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            updateThemeUI(newTheme);
+        });
     });
+
+    // Initialize Theme
+    const savedTheme = localStorage.getItem('theme') || htmlElement.getAttribute('data-theme') || 'light';
+    updateThemeUI(savedTheme);
 
     // --- RTL/LTR Toggle ---
-    const langToggle = document.getElementById('lang-toggle');
-    langToggle.addEventListener('click', () => {
-        const currentDir = htmlElement.getAttribute('dir');
-        const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
-        htmlElement.setAttribute('dir', newDir);
-        htmlElement.setAttribute('lang', newDir === 'rtl' ? 'ar' : 'en');
+    const langToggles = [document.getElementById('lang-toggle'), document.getElementById('dash-lang-toggle')].filter(Boolean);
+
+    function updateLangUI(dir) {
+        htmlElement.setAttribute('dir', dir);
+        htmlElement.setAttribute('lang', dir === 'rtl' ? 'ar' : 'en');
+        langToggles.forEach(btn => {
+            const span = btn.querySelector('span');
+            if (span) {
+                span.textContent = dir.toUpperCase();
+            } else {
+                btn.textContent = dir.toUpperCase();
+            }
+        });
+        localStorage.setItem('dir', dir);
+    }
+
+    langToggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const currentDir = htmlElement.getAttribute('dir') || 'ltr';
+            const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+            updateLangUI(newDir);
+        });
     });
+
+    // Initialize Language
+    const savedDir = localStorage.getItem('dir') || htmlElement.getAttribute('dir') || 'ltr';
+    updateLangUI(savedDir);
+
+
+
 
     // Header is fully static — no scroll-based padding or size changes
 
@@ -148,10 +188,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     highlightNav();
 
-    // Initialize theme from local storage if available
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        htmlElement.setAttribute('data-theme', savedTheme);
-        themeIcon.className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-    }
 });

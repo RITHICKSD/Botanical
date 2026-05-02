@@ -197,25 +197,34 @@
         }
 
         .icon-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             border: 1px solid var(--border);
             background: var(--bg-secondary);
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
+            padding: 0;
         }
 
         .icon-btn:hover {
             background: var(--accent-primary);
             color: white;
             border-color: var(--accent-primary);
+            transform: rotate(15deg) scale(1.1);
         }
+
+        #dash-lang-toggle {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
 
         /* ===== MAIN CONTENT ===== */
         .dash-main {
@@ -518,7 +527,7 @@
             </nav>
             <div class="sidebar-bottom">
                 <div class="sidebar-bottom-left">
-                    <button class="icon-btn" id="dash-lang-toggle"><i class="fas fa-globe"></i></button>
+                    <button class="icon-btn" id="dash-lang-toggle"><span>LTR</span></button>
                     <button class="icon-btn" id="dash-theme-toggle"><i class="fas fa-moon"></i></button>
                 </div>
             </div>
@@ -629,23 +638,10 @@
         </main>
     </div>
 
+    <script src="index.js"></script>
     <script>
-        const html = document.documentElement;
-
-        // Initialize theme from local storage
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            html.setAttribute('data-theme', savedTheme);
-        }
-
-        document.getElementById('dash-theme-toggle').addEventListener('click', () => {
-            const t = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            html.setAttribute('data-theme', t);
-            localStorage.setItem('theme', t);
-            updateCharts();
-        });
-
         const sidebar = document.getElementById('sidebar');
+
         const toggle = document.getElementById('sidebar-toggle');
         const overlay = document.getElementById('sidebar-overlay');
 

@@ -94,9 +94,9 @@
         }
 
         .util-btn {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             border: 1px solid var(--border) !important;
             background: var(--bg-card) !important;
             color: var(--text-primary) !important;
@@ -106,13 +106,23 @@
             cursor: pointer;
             transition: var(--transition);
             box-shadow: 0 4px 15px var(--shadow) !important;
+            padding: 0;
+            font-size: 1.1rem;
         }
 
         .util-btn:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent-primary);
-            color: var(--accent-primary);
+            background: var(--accent-primary) !important;
+            color: white !important;
+            border-color: var(--accent-primary) !important;
+            transform: rotate(15deg) scale(1.1);
         }
+
+        #lang-toggle {
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
 
         .auth-card {
             background: var(--bg-card);
@@ -354,7 +364,7 @@
     <div class="bg-blob blob-2"></div>
 
     <div class="top-utils">
-        <button class="util-btn" id="lang-toggle" title="Switch RTL/LTR"><i class="fas fa-globe"></i></button>
+        <button class="util-btn" id="lang-toggle" title="Switch RTL/LTR"><span>LTR</span></button>
         <button class="util-btn" id="theme-toggle" title="Toggle Dark/Light"><i class="fas fa-moon"></i></button>
     </div>
 
@@ -422,19 +432,8 @@
         </div>
     </div>
 
-    <script>
-        const html = document.documentElement;
-        document.getElementById('theme-toggle').addEventListener('click', () => {
-            const t = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            html.setAttribute('data-theme', t);
-            document.querySelector('#theme-toggle i').className = t === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-        });
+    <script src="index.js"></script>
 
-        document.getElementById('lang-toggle').addEventListener('click', () => {
-            const d = html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr';
-            html.setAttribute('dir', d);
-        });
-    </script>
 </body>
 
 </html>

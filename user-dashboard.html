@@ -211,25 +211,34 @@
         }
 
         .icon-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             border: 1px solid var(--border);
             background: var(--bg-secondary);
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
+            padding: 0;
         }
 
         .icon-btn:hover {
             background: var(--accent-primary);
             color: white;
             border-color: var(--accent-primary);
+            transform: rotate(15deg) scale(1.1);
         }
+
+        #dash-lang-toggle {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
 
         /* ===== MAIN CONTENT ===== */
         .dash-main {
@@ -761,8 +770,9 @@
             <div class="sidebar-bottom">
                 <div class="sidebar-bottom-left">
                     <button class="icon-btn" id="dash-lang-toggle" title="Switch RTL/LTR">
-                        <i class="fas fa-globe"></i>
+                        <span>LTR</span>
                     </button>
+
                     <button class="icon-btn" id="dash-theme-toggle" title="Toggle Dark/Light">
                         <i class="fas fa-moon"></i>
                     </button>
@@ -1109,32 +1119,10 @@
         </main>
     </div>
 
+    <script src="index.js"></script>
     <script>
-        // ===== THEME & LANG TOGGLES =====
-        const html = document.documentElement;
-
-        // Initialize theme from local storage
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            html.setAttribute('data-theme', savedTheme);
-            const icon = document.getElementById('dash-theme-toggle').querySelector('i');
-            icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        }
-
-        document.getElementById('dash-theme-toggle').addEventListener('click', function () {
-            const t = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            html.setAttribute('data-theme', t);
-            this.querySelector('i').className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-            localStorage.setItem('theme', t);
-            updateChartTheme();
-        });
-
-        document.getElementById('dash-lang-toggle').addEventListener('click', function () {
-            const dir = html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr';
-            html.setAttribute('dir', dir);
-        });
-
         // ===== SIDEBAR TOGGLE (mobile) =====
+
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('sidebar-overlay');
         const sidebarToggle = document.getElementById('sidebar-toggle');
