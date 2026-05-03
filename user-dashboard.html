@@ -1158,6 +1158,7 @@
         });
 
         // ===== CHARTS =====
+        const html = document.documentElement;
         const purple = '#6b4e71';
         const rose = '#d4a5a5';
         const lightRose = 'rgba(212, 165, 165, 0.15)';
@@ -1358,6 +1359,9 @@
                 chart.update();
             });
         }
+
+        // Initial call to set colors
+        updateChartTheme();
     </script>
 </body>
 

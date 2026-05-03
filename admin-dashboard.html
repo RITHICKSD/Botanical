@@ -667,6 +667,7 @@
             });
         });
 
+        const html = document.documentElement;
         const purple = '#6b4e71'; const rose = '#d4a5a5';
         Chart.defaults.font.family = "'Montserrat', sans-serif";
         Chart.defaults.color = '#888';
@@ -704,6 +705,9 @@
                 c.update();
             });
         }
+
+        // Initial call to set colors
+        updateCharts();
     </script>
 </body>
 
